@@ -54,10 +54,10 @@ npm install
 
 npx expo start
 
-<img width="500" height="700" alt="gameover_screen" src="https://github.com/user-attachments/assets/958604d0-a5ae-4d1e-b536-375e357ad98a" />
-<img width="500" height="700" alt="startgame_screen" src="https://github.com/user-attachments/assets/251875ad-4e97-4b39-83bf-9f020d888767" />
-<img width="500" height="700" alt="guessing_screen" src="https://github.com/user-attachments/assets/9c588610-9086-4458-9e85-103a4de8c9c7" />
-<img width="500" height="700" alt="guessing_alert" src="https://github.com/user-attachments/assets/047b3e4a-69f5-4511-beb6-a6d46c5e5f93" />
+<img width="500" height="800" alt="gameover_screen" src="https://github.com/user-attachments/assets/958604d0-a5ae-4d1e-b536-375e357ad98a" />
+<img width="500" height="800" alt="startgame_screen" src="https://github.com/user-attachments/assets/251875ad-4e97-4b39-83bf-9f020d888767" />
+<img width="500" height="800" alt="guessing_screen" src="https://github.com/user-attachments/assets/9c588610-9086-4458-9e85-103a4de8c9c7" />
+<img width="500" height="800" alt="guessing_alert" src="https://github.com/user-attachments/assets/047b3e4a-69f5-4511-beb6-a6d46c5e5f93" />
 
 
 
