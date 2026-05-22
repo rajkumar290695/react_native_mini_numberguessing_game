@@ -1,45 +1,62 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
+import React, { useState } from "react";
+import { ImageBackground, SafeAreaView, StyleSheet } from "react-native";
+import { LinearGradient } from 'react-native-linear-gradient';
+import StartGameScreen from '../minigame/src/screens/StartGameScreen';
+import GameScreen from '../minigame/src/screens/GameScreen';
+import GameOverScreen from '../minigame/src/screens/GameOverScreen';
+import colors from "../minigame/src/constants/colors";
+ 
 
 function App() {
-  const isDarkMode = useColorScheme() === 'dark';
+  
+  const [userNumber, setUserNumber] = useState('');
+  const [gameIsOver, setGameIsOver] = useState(true);
+  const [guessRounds, setGuessRounds] = useState(0);
+  
+  function pickedNumberHandler(pickedNumber : any) {
+    console.log(pickedNumber);
+    setUserNumber(pickedNumber);
+    setGameIsOver(false);
+  }
 
+  let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
+  
+  if (userNumber) {
+    screen = <GameScreen userNumber={userNumber} onGameOver={gameOverHandler} />;
+  }
+
+  function gameOverHandler(numberOfRounds : any) {
+    setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
+  }
+  
+  function startNewGameHandler() {
+    setUserNumber('');
+    setGuessRounds(0);
+  }
+
+  if (gameIsOver && userNumber) {
+    screen = <GameOverScreen roundsNumber={guessRounds} userNumber={userNumber} onStartNewGame={startNewGameHandler} />;
+  }
+  
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
+    <LinearGradient colors={[colors.primary700, colors.accent500]} style={styles.rootScreen}>
+      <ImageBackground source={require('../minigame/src/images/bgImg.jpg')} resizeMode="cover" style={styles.rootScreen} imageStyle={styles.backgroundImage}>
+        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+      </ImageBackground>
+    </LinearGradient> 
   );
+
 }
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
+
+
+const styles = StyleSheet.create({
+  rootScreen: {
+    flex: 1,
+  },
+  backgroundImage: {
+    opacity: 0.15,
+  },
+});
