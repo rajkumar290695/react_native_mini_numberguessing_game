@@ -19,6 +19,8 @@ function App() {
     setGameIsOver(false);
   }
 
+  //test gitlab
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
   
   if (userNumber) {
