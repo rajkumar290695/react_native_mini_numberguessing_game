@@ -19,6 +19,8 @@ function App() {
     setGameIsOver(false);
   }
 
+  // git check working or not
+
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
   
   if (userNumber) {
