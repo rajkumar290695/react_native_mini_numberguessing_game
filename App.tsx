@@ -7,13 +7,6 @@ import GameOverScreen from '../minigame/src/screens/GameOverScreen';
 import colors from "../minigame/src/constants/colors";
  
 
-// Hi this is the main App component for a number guessing game.
-//  It manages the state of the game, including the user's picked number, 
-//  whether the game is over, and the number of rounds taken to guess the number.
-//   The component renders different screens based on the current state of the game, 
-//   such as the start screen, game screen, and game over screen. It also uses a linear
-//    gradient background and an image background for styling.
-
 
 function App() {
   
